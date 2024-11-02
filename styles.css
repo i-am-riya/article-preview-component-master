@@ -26,7 +26,7 @@ body {
 }
 
 main {
-    width: 100%;
+    max-width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@ main {
 }
 
 .card {
-    width: 55%;
+    width: 800px;
     height: auto;
     border-radius: 10px;
     display: flex;
@@ -89,6 +89,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0 35px 25px 35px;
+    position: relative;
 }
 
 #avatar {
@@ -172,10 +173,11 @@ main {
     visibility: visible;
     opacity: 1;
     position: absolute;
-    top: 350px;
+    top: -56px;
     z-index: 2;
-    transform: translateX(140%);
-    &::after{
+    transform: translateX(147%);
+
+    &::after {
         content: '';
         position: absolute;
         width: 0;
@@ -183,7 +185,7 @@ main {
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
         border-top: 10px solid var(--VeryDarkGrayishBlue);
-        bottom: -10px;
+        bottom: -9px;
         left: 50%;
         transform: translateX(-20%);
     }
@@ -249,8 +251,11 @@ main {
         background-color: var(--VeryDarkGrayishBlue);
     }
 
+    .tooltip.show::after {
+        display: none;
+    }
 
-    #tooltip.hide {
+    .tooltip.hide {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -263,4 +268,22 @@ main {
         opacity: 1;
         transition: opacity 0.3s;
     }
+
+    .tooltip.show {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        position: relative;
+        padding-left: 35px;
+        border-radius: 5px;
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.3s;
+        top: 0;
+        z-index: 2;
+        transform: none;
+    }
+
 }
